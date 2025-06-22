@@ -332,37 +332,6 @@ body {
 /* Resto de tu CSS existente... */
 
 /* -------------------------------------------------- */
-/* Estilos para el encabezado principal (Header) */
-/* -------------------------------------------------- */
-/* NOTA: Este bloque es una duplicación del .main-header inicial y debería ser eliminado */
-/*
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #FFF87; // Vanilla Cream
-    border-bottom: 1px solid #B9AFAF; // Mauve Gray
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    height: 50px;
-    margin-right: 10px;
-}
-
-.site-name {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #1F1F1F; // Slate Black
-}
-*/
-
-/* -------------------------------------------------- */
 /* Estilos para la navegación de utilidad en el Header */
 /* -------------------------------------------------- */
 .header-utility-nav ul {
@@ -402,6 +371,11 @@ body {
     background-color: #650021; /* Rosewood - Color de fondo del menú principal */
     padding: 0 30px;
     box-shadow: 0 2px 5px rgb(0, 0, 0);
+    display: none;
+}
+
+.main-menu-nav.active {
+    display: block;
 }
 
 .main-menu-nav ul {

@@ -87,3 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Llama a la función de actualización de imagen al cargar la página para mostrar la primera imagen.
     updateCarouselImage(currentImageIndex);
 });
+
+
+// Al final de script.js
+const menuIcon = document.querySelector('.menu-icon');
+const navMenu = document.querySelector('.main-menu-nav');
+
+menuIcon.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
