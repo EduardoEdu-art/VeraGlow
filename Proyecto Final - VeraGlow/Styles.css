@@ -117,8 +117,8 @@ body {
 }
 
 .carousel-dot {
-    width: 60px; /* Ancho del círculo */
-    height: 60px; /* Altura del círculo */
+    width: 100px; /* Ancho del círculo */
+    height: 100px; /* Altura del círculo */
     border-radius: 50%; /* Hace que el elemento sea un círculo */
     background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco semitransparente - (manteniendo blanco por ser punto) */
     border: 2px solid #B9AFAF; /* Mauve Gray - Borde del círculo */
@@ -371,7 +371,6 @@ body {
     background-color: #650021; /* Rosewood - Color de fondo del menú principal */
     padding: 0 30px;
     box-shadow: 0 2px 5px rgb(0, 0, 0);
-    display: none;
 }
 
 .main-menu-nav.active {
