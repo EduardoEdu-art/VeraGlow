@@ -79,60 +79,45 @@ body {
 /* 3. Estilos para la sección del Carrusel */
 /* -------------------------------------------------- */
 .carousel-section {
-    position: relative; /* Para posicionar el fondo y el contenido del carrusel */
-    height: 400px; /* Altura fija de la sección del carrusel */
-    display: flex; /* Para centrar el contenido vertical y horizontalmente */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Oculta cualquier contenido que se desborde */
-}
+      position: relative;
+      height: auto;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #F7CAC9;
+    }
 
-.carousel-background {
-    position: absolute; /* Posicionamiento absoluto para cubrir toda la sección */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('ruta/a/imagen_senora_maquillandose.jpg'); /* **IMPORTANTE: Cambia esta ruta** */
-    background-size: cover; /* La imagen cubre todo el contenedor */
-    background-position: center; /* Centra la imagen */
-    filter: brightness(0.6); /* Oscurece la imagen de fondo para mejorar la legibilidad del texto */
-    z-index: -1; /* Envía la imagen al fondo, detrás del contenido del carrusel */
-}
+    .carousel-container h2 {
+      color: #650021;
+      font-size: 2em;
+      margin-bottom: 20px;
+      
+    }
 
-.carousel-container {
-    text-align: center;
-    color: white; /* Color del texto sobre la imagen de fondo */
-    z-index: 1; /* Asegura que el contenido esté por encima del fondo */
-}
+    .carousel-dots {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
 
-/* -------------------------------------------------- */
-/* 2. Estilos para los círculos de navegación del Carrusel */
-/* -------------------------------------------------- */
-.carousel-dots {
-    display: flex; /* Alinea los puntos horizontalmente */
-    justify-content: center;
-    margin-top: 20px; /* Espacio superior */
-}
+    .carousel-dot {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #B9AFAF;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
 
-.carousel-dot {
-    width: 100px; /* Ancho del círculo */
-    height: 100px; /* Altura del círculo */
-    border-radius: 50%; /* Hace que el elemento sea un círculo */
-    background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco semitransparente - (manteniendo blanco por ser punto) */
-    border: 2px solid #B9AFAF; /* Mauve Gray - Borde del círculo */
-    margin: 0 10px; /* Espacio horizontal entre círculos */
-    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
-    transition: all 0.3s ease; /* Transición para efectos de hover */
-    background-size: cover; /* Para la imagen de hover si se usa directamente en CSS */
-    background-position: center;
-}
-
-.carousel-dot:hover {
-    transform: scale(1.1); /* Agranda ligeramente el círculo al pasar el cursor */
-    border-color: #650021; /* Rosewood - Cambia el color del borde al pasar el cursor */
-}
+    .carousel-dot:hover {
+      transform: scale(1.1);
+      border-color: #650021;
+    }
 
 /* -------------------------------------------------- */
 /* Estilos para la sección de Productos */

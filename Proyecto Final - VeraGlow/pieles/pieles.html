@@ -1,0 +1,76 @@
+<!-- pagina_color_piel.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Encuentra tu tono ideal - VeraGlow</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body { font-family: "Cormorant Upright", serif; background-color: #F9E2C5; margin: 0; padding: 20px; }
+    h1 { color: #650021; text-align: center; }
+    .skin-tone-container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .preview-img { max-width: 100%; margin-top: 20px; border-radius: 8px; }
+    input[type=file] { margin-top: 10px; }
+    video { width: 100%; border-radius: 10px; margin-top: 20px; }
+    canvas { display: none; }
+    button { background-color: #650021; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; margin-top: 20px; font-family: inherit; }
+  </style>
+</head>
+<body>
+  <div class="skin-tone-container">
+    <h1>Descubre tu tono de piel</h1>
+    <p>Sube una foto o usa tu cámara para analizar tu color de piel y obtener recomendaciones personalizadas.</p>
+
+    <label for="imageUpload">Subir imagen:</label>
+    <input type="file" id="imageUpload" accept="image/*">
+    <img id="preview" class="preview-img" />
+
+    <hr>
+    <h3>O usa tu cámara</h3>
+    <video id="video" autoplay></video>
+    <button onclick="tomarFoto()">Capturar imagen</button>
+    <canvas id="canvas"></canvas>
+
+    <p id="recomendacion" style="margin-top: 20px; font-weight: bold;"></p>
+  </div>
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const preview = document.getElementById('preview');
+    const recomendacion = document.getElementById('recomendacion');
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => video.srcObject = stream)
+      .catch(error => console.error('No se pudo acceder a la cámara', error));
+
+    document.getElementById('imageUpload').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          preview.src = event.target.result;
+          analizarColor(event.target.result);
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function tomarFoto() {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0);
+      const imageData = canvas.toDataURL('image/png');
+      preview.src = imageData;
+      analizarColor(imageData);
+    }
+
+    function analizarColor(imagen) {
+      // Simulación básica: puede integrarse con IA o API externa
+      // Aquí asumimos un tono medio
+      recomendacion.textContent = 'Tono detectado: medio. Te recomendamos bases neutras y tonos cálidos como coral, bronce o champagne.';
+    }
+  </script>
+</body>
+</html>
