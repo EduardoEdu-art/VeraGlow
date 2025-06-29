@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "nombre": "Zapatos Deportivos",
+    "marca": "Nike",
+    "precio": 120,
+    "fecha_lanzamiento": "2025-04-10",
+    "ventas": 250,
+    "imagen": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 2,
+    "nombre": "Camiseta Casual",
+    "marca": "Adidas",
+    "precio": 35,
+    "fecha_lanzamiento": "2025-01-15",
+    "ventas": 400,
+    "imagen": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 3,
+    "nombre": "Pantalón Jeans",
+    "marca": "Levis",
+    "precio": 60,
+    "fecha_lanzamiento": "2024-12-20",
+    "ventas": 150,
+    "imagen": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 4,
+    "nombre": "Sudadera",
+    "marca": "Nike",
+    "precio": 80,
+    "fecha_lanzamiento": "2025-03-05",
+    "ventas": 300,
+    "imagen": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 5,
+    "nombre": "Gorra",
+    "marca": "Adidas",
+    "precio": 25,
+    "fecha_lanzamiento": "2025-05-01",
+    "ventas": 500,
+    "imagen": "https://via.placeholder.com/150"
+  }
+]

@@ -1,138 +1,273 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Productos - VeraGlow</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <script>
-    function aplicarFiltros() {
-      const form = document.getElementById('filtros-form');
-      form.submit();
-    }
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tienda Online Demo</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&display=swap" rel="stylesheet" />
   <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fffaf9;
+    /* Reset y base */
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      font-family: "Cormorant Upright", serif;
+      background-color: #F9E2C5;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header, footer {
+      background: #650021;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      flex-shrink: 0;
+    }
+
+    main {
+      flex: 1 0 auto;
+      display: flex;
+      height: calc(100vh - 120px); /* Altura total menos header y footer (20+20+80 aprox) */
+      overflow: hidden;
+    }
+
+    .filters-sidebar {
+      background: #fff;
+      padding: 20px;
+      width: 280px;
+      border-radius: 0 20px 20px 0;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.1);
+      overflow-y: auto;
+    }
+
+    .filters-sidebar h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #650021;
+      font-size: 22px;
+      border-bottom: 2px solid #650021;
+      padding-bottom: 8px;
+    }
+
+    .filters-sidebar label {
+      display: block;
+      margin: 15px 0 6px;
+      font-weight: 600;
       color: #333;
     }
-    header, footer {
-      background-color: #f4e9e2;
-      padding: 20px;
-      text-align: center;
+
+    .filters-sidebar input[type=number],
+    .filters-sidebar select {
+      width: 100%;
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      font-family: inherit;
     }
-    .container {
-      display: flex;
-      padding: 20px;
-    }
-    .filters {
-      width: 250px;
-      margin-right: 20px;
-    }
+
     .product-grid {
       flex: 1;
+      padding: 40px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      overflow-y: auto;
     }
+
     .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      padding: 15px;
       position: relative;
-      border-radius: 12px;
-      padding: 10px;
-      background: #fff;
+      transition: transform 0.3s;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
     }
     .product-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
     .product-image {
       width: 100%;
-      border-radius: 10px;
+      height: 200px;
+      object-fit: contain;
+      margin-bottom: 10px;
     }
     .product-info {
-      margin-top: 10px;
+      text-align: center;
     }
-    .product-name, .product-brand, .product-price {
-      margin: 4px 0;
+    .product-name {
+      font-weight: bold;
+      color: #1F1F1F;
+      font-size: 18px;
+    }
+    .product-brand {
+      font-size: 14px;
+      color: #777;
+      margin-top: 4px;
+    }
+    .product-price {
+      font-size: 18px;
+      color: #650021;
+      margin: 10px 0;
+    }
+    .product-desc {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
     }
     .add-to-cart {
       display: none;
-      width: 100%;
-      margin-top: 10px;
-      padding: 8px;
-      border: none;
-      background-color: #dba9a3;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #650021;
       color: white;
-      border-radius: 8px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
       cursor: pointer;
+      transition: background 0.3s;
+      border: none;
     }
     .product-card:hover .add-to-cart {
       display: block;
     }
-    .sold-out {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: #ff5e5e;
-      color: white;
-      padding: 4px 8px;
-      font-size: 12px;
-      border-radius: 5px;
+
+    /* Scrollbar para filtro y productos */
+    .filters-sidebar::-webkit-scrollbar,
+    .product-grid::-webkit-scrollbar {
+      width: 8px;
     }
-    .filters label {
-      display: block;
-      margin-top: 10px;
-    }
-    .filters input[type="checkbox"], .filters input[type="range"] {
-      margin-right: 8px;
+    .filters-sidebar::-webkit-scrollbar-thumb,
+    .product-grid::-webkit-scrollbar-thumb {
+      background-color: rgba(101, 0, 33, 0.4);
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>VeraGlow</h1>
+    <h1>Tienda Online Demo</h1>
+    <nav>
+      <!-- Aquí podrías poner links a otras secciones -->
+    </nav>
   </header>
 
-  <div class="container">
-    <form id="filtros-form" class="filters" method="GET" action="productos.php">
-      <h3>Disponibilidad en</h3>
-      <label><input type="checkbox" name="sucursal[]" value="Multiplaza"> Multiplaza</label>
-      <label><input type="checkbox" name="sucursal[]" value="Vía España"> Vía España</label>
+  <main>
+    <aside class="filters-sidebar">
+      <h4>Filtros</h4>
 
-      <h3>Marca</h3>
-      <label><input type="checkbox" name="marca[]" value="Chanel"> Chanel</label>
-      <label><input type="checkbox" name="marca[]" value="Dior"> Dior</label>
-      <label><input type="checkbox" name="marca[]" value="Clarins"> Clarins</label>
+      <label for="filtroMarca">Marca:</label>
+      <select id="filtroMarca">
+        <option value="">Todas</option>
+      </select>
 
-      <h3>Clase</h3>
-      <label><input type="checkbox" name="clase[]" value="Labios"> Labios</label>
-      <label><input type="checkbox" name="clase[]" value="Estuches"> Estuches</label>
+      <label for="precioMin">Precio mínimo:</label>
+      <input type="number" id="precioMin" value="0" min="0" />
 
-      <h3>Precio</h3>
-      <input type="range" name="precio_min" min="10" max="100" oninput="this.nextElementSibling.value = this.value">
-      <output>10</output>
-      <br>
-      <input type="range" name="precio_max" min="10" max="100" oninput="this.nextElementSibling.value = this.value">
-      <output>100</output>
+      <label for="precioMax">Precio máximo:</label>
+      <input type="number" id="precioMax" value="1000" min="0" />
 
-      <br><br>
-      <button type="button" onclick="aplicarFiltros()">Aplicar Filtros</button>
-    </form>
+      <label for="orden">Ordenar por:</label>
+      <select id="orden">
+        <option value="nuevo">Más nuevo</option>
+        <option value="vendido">Más vendido</option>
+      </select>
+    </aside>
 
-    <div class="product-grid">
-      <?php include 'productos.php'; ?>
-    </div>
-  </div>
+    <section class="product-grid" id="productosContainer">
+      <!-- Productos se cargan aquí -->
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 VeraGlow. Todos los derechos reservados.</p>
+    <p>© 2025 Mi Tienda Online. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    let productos = [];
+
+    function cargarMarcas() {
+      const filtroMarca = document.getElementById('filtroMarca');
+      const marcas = [...new Set(productos.map(p => p.marca))];
+      marcas.forEach(marca => {
+        const option = document.createElement('option');
+        option.value = marca;
+        option.textContent = marca;
+        filtroMarca.appendChild(option);
+      });
+    }
+
+    function mostrarProductos() {
+      const contenedor = document.getElementById('productosContainer');
+      contenedor.innerHTML = '';
+
+      const marca = document.getElementById('filtroMarca').value;
+      const precioMin = Number(document.getElementById('precioMin').value);
+      const precioMax = Number(document.getElementById('precioMax').value);
+      const orden = document.getElementById('orden').value;
+
+      let filtrados = productos.filter(p => {
+        return (marca === '' || p.marca === marca) &&
+               p.precio >= precioMin &&
+               p.precio <= precioMax;
+      });
+
+      if (orden === 'nuevo') {
+        filtrados.sort((a, b) => new Date(b.fecha_lanzamiento) - new Date(a.fecha_lanzamiento));
+      } else if (orden === 'vendido') {
+        filtrados.sort((a, b) => b.ventas - a.ventas);
+      }
+
+      if (filtrados.length === 0) {
+        contenedor.textContent = 'No hay productos que coincidan con los filtros.';
+        return;
+      }
+
+      filtrados.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'product-card';
+
+        div.innerHTML = `
+          <img class="product-image" src="${p.imagen}" alt="${p.nombre}" />
+          <div class="product-info">
+            <div class="product-name">${p.nombre}</div>
+            <div class="product-brand">${p.marca}</div>
+            <div class="product-price">$${p.precio}</div>
+            <div class="product-desc">Ventas: ${p.ventas} | Lanzado: ${p.fecha_lanzamiento}</div>
+          </div>
+          <button class="add-to-cart">Agregar al carrito</button>
+        `;
+
+        contenedor.appendChild(div);
+      });
+    }
+
+    document.getElementById('filtroMarca').addEventListener('change', mostrarProductos);
+    document.getElementById('precioMin').addEventListener('input', mostrarProductos);
+    document.getElementById('precioMax').addEventListener('input', mostrarProductos);
+    document.getElementById('orden').addEventListener('change', mostrarProductos);
+
+    fetch('productos.json')
+      .then(res => res.json())
+      .then(data => {
+        productos = data;
+        cargarMarcas();
+        mostrarProductos();
+      })
+      .catch(err => {
+        console.error('Error cargando productos:', err);
+        document.getElementById('productosContainer').textContent = 'Error cargando productos.';
+      });
+  </script>
 </body>
 </html>
