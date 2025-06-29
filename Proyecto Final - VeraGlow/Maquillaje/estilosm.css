@@ -1,0 +1,470 @@
+/* 1. Estilos para el encabezado principal (Header) */
+/* -------------------------------------------------- */
+.main-header {
+    display: flex; /* Utiliza Flexbox para alinear elementos horizontalmente*/
+    justify-content: space-between; /* Distribuye el espacio entre los grupos de elementos (izquierda y derecha) */
+    align-items: center; /* Alinea los ítems verticalmente al centro */
+    padding: 15px 30px; /* Relleno superior/inferior y lateral */
+    background-color: #F9E2C5; /* Vanilla Cream - Color de fondo del encabezado */
+    border-bottom: 1px solid #B9AFAF; /* Mauve Gray - Línea separadora inferior */
+}
+
+
+.header-left {
+    display: flex; /* Para alinear el logo y el nombre del sitio */
+    align-items: center;
+}
+
+.logo {
+    height: 50px; /* Altura del logo */
+    margin-right: 10px; /* Espacio a la derecha del logo */
+}
+
+.site-name {
+    font-family: "Cormorant Upright", serif;
+    font-size: 4em; /* Tamaño de fuente para el nombre del sitio */
+    font-weight: bold; /* Negrita */
+    color: #1F1F1F; /* Slate Black - Color del texto */
+}
+
+/* Media Queries para Diseño Responsivo */
+/* Adaptación del layout para diferentes tamaños de pantalla */
+/* -------------------------------------------------- */
+
+/* Para tabletas y dispositivos móviles más grandes (ancho máximo de 768px) */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column; /* Apila los elementos del encabezado (logo/nombre y navegación) */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+    }
+
+    .main-nav ul { /* Renombrado de main-nav a header-utility-nav */
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 15px;
+    }
+
+    .site-name {
+        font-size: 4em; /* Tamaño para tablets y escritorios */
+    }
+
+    .main-nav ul li {
+        margin: 5px 0; /* Reduce el margen vertical entre los ítems de navegación */
+    }
+
+    .footer-content {
+        flex-direction: column; /* Apila las columnas del pie de página */
+        align-items: center; /* Centra las columnas apiladas */
+    }
+}
+
+/* Para dispositivos móviles pequeños (ancho máximo de 480px) */
+@media (max-width: 480px) {
+    body {
+        font-size: 1.9em; /* Reduce el tamaño de fuente general */
+    }
+
+    .main-header,
+    .carousel-section,
+    .products-section,
+    .site-footer {
+        padding-left: 15px; /* Reduce el padding horizontal para pantallas pequeñas */
+        padding-right: 15px;
+    }
+
+    .product-grid {
+        gap: 20px; /* Reduce el espacio entre las tarjetas de producto */
+    }
+
+    .carousel-dot {
+        width: 40px; /* Reduce el tamaño de los puntos del carrusel */
+        height: 40px;
+    }
+
+    .option-circle {
+        width: 30px; /* Reduce el tamaño de los círculos de opción en hover */
+        height: 30px;
+    }
+}
+
+
+/* Estilos para el Menú Principal Horizontal (main-menu-nav) */
+/* -------------------------------------------------- */
+.main-menu-nav {
+    background-color: #650021; /* Rosewood - Color de fondo del menú principal */
+    padding: 0 30px;
+    box-shadow: 0 2px 5px rgb(0, 0, 0);
+}
+
+.main-menu-nav.active {
+    display: block;
+}
+
+.main-menu-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Para que los ítems de nivel superior estén horizontales */
+    justify-content: space-around; /* Distribuye el espacio equitativamente */
+}
+
+.main-menu-nav ul li {
+    position: relative; /* Esencial para el posicionamiento de los submenús */
+}
+
+.main-menu-nav ul li a {
+    display: block; /* Hace que todo el área del li sea clicable */
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #F5E6C2; /* Champagne Gold - Color del texto del menú principal */
+    font-weight: bold;
+    font-size: 20px;
+     font-family: "Cormorant Upright", serif;
+    transition: background-color 0.3s ease;
+}
+
+.main-menu-nav ul li a:hover {
+    background-color: #F7CAC9; /* Rosa Palo - Color de fondo al pasar el cursor */
+}
+
+/* -------------------------------------------------- */
+/* Estilos para los Submenús */
+/* -------------------------------------------------- */
+.submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute; /* Posiciona el submenú en relación con su padre <li> */
+    background-color: rgba(101, 0, 33, 0.8); /* Rosewood con 80% de opacidad - Color de fondo del submenú */
+    min-width: 200px; /* Ancho mínimo para el submenú */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000; /* Asegura que el submenú esté por encima de otros elementos */
+    display: none; /* Oculta el submenú por defecto */
+    left: 0; /* Alinea el submenú con el borde izquierdo del elemento padre */
+    top: 100%; /* Coloca el submenú justo debajo del elemento padre */
+    border-radius: 0 0 5px 5px; /* Bordes redondeados solo abajo */
+}
+
+.submenu li a {
+    padding: 12px 16px;
+    color: #F5E6C2; /* Champagne Gold - Color del texto de las subsecciones */
+    text-decoration: none;
+    display: block;
+    text-align: left; /* Alinea el texto a la izquierda en el submenú */
+    transition: background-color 0.3s ease;
+}
+
+.submenu li a:hover {
+    background-color: rgba(247, 202, 201, 0.7); /* Rosa Palo con 70% de opacidad - Color de fondo al pasar el cursor por las subsecciones */
+}
+
+/* Mostrar el submenú al pasar el cursor sobre el li padre */
+.has-submenu:hover > .submenu {
+    display: block; /* Esta es la clave: MUESTRA el submenú al hacer hover */
+}
+
+/* Media Queries para Responsividad (ejemplos) */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-utility-nav ul { /* Renombrado de main-nav a header-utility-nav */
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 15px;
+    }
+
+    .header-utility-nav ul li { /* Renombrado de main-nav a header-utility-nav */
+        margin: 5px 0;
+    }
+
+    .main-menu-nav ul {
+        flex-direction: column; /* Apila los ítems del menú principal en móviles */
+        align-items: flex-start;
+        width: 100%; /* Ocupa todo el ancho */
+    }
+
+    .main-menu-nav ul li {
+        width: 100%; /* Cada ítem ocupa todo el ancho */
+        text-align: left; /* Alinea el texto a la izquierda */
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Separador entre ítems */
+    }
+
+    .main-menu-nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    .submenu {
+        position: static; /* Cambia a posicionamiento estático en móviles */
+        box-shadow: none; /* Elimina la sombra */
+        min-width: auto; /* Ancho automático */
+        background-color: rgba(101, 0, 33, 0.8); /* Rosewood con 80% de opacidad - Un color ligeramente diferente para submenús en móvil */
+        border-radius: 0;
+    }
+
+    .has-submenu:hover > .submenu {
+        display: block; /* Asegura que el submenú se siga mostrando en hover */
+    }
+}
+
+/* Estilos para pag de Productos */
+/* -------------------------------------------------- */
+main {
+      flex: 1 0 auto;
+      display: flex;
+      height: calc(100vh - 120px); /* Altura total menos header y footer (20+20+80 aprox) */
+      overflow: hidden;
+    }
+
+    .filters-sidebar {
+      background: #fff;
+      padding: 20px;
+      width: 280px;
+      border-radius: 0 20px 20px 0;
+      box-shadow: 2px 0 12px rgba(0,0,0,0.1);
+      overflow-y: auto;
+    }
+
+    .filters-sidebar h4 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #650021;
+      font-size: 22px;
+      border-bottom: 2px solid #650021;
+      padding-bottom: 8px;
+    }
+
+    .filters-sidebar label {
+      display: block;
+      margin: 15px 0 6px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .filters-sidebar input[type=number],
+    .filters-sidebar select {
+      width: 100%;
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    .product-grid {
+      flex: 1;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      overflow-y: auto;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      padding: 15px;
+      position: relative;
+      transition: transform 0.3s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .product-image {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .product-info {
+      text-align: center;
+    }
+    .product-name {
+      font-weight: bold;
+      color: #1F1F1F;
+      font-size: 18px;
+    }
+    .product-brand {
+      font-size: 14px;
+      color: #777;
+      margin-top: 4px;
+    }
+    .product-price {
+      font-size: 18px;
+      color: #650021;
+      margin: 10px 0;
+    }
+    .product-desc {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    .add-to-cart {
+      display: none;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #650021;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s;
+      border: none;
+    }
+    .product-card:hover .add-to-cart {
+      display: block;
+    }
+
+    /* Scrollbar para filtro y productos */
+    .filters-sidebar::-webkit-scrollbar,
+    .product-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+    .filters-sidebar::-webkit-scrollbar-thumb,
+    .product-grid::-webkit-scrollbar-thumb {
+      background-color: rgba(101, 0, 33, 0.4);
+      border-radius: 4px;
+    }
+
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      font-family: "Cormorant Upright", serif;
+      background-color: #F9E2C5;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* -------------------------------------------------- */
+/* 5. Estilos para la barra de navegación (Nav) */
+/* -------------------------------------------------- */
+/* NOTA: Este bloque de .main-nav es redundante si solo se usa .main-menu-nav */
+.main-nav ul {
+    list-style: none; /* Elimina los marcadores de lista (viñetas) */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Para que los ítems de navegación estén en línea */
+}
+
+.main-nav ul li {
+    margin-left: 20px; /* Espacio entre los elementos de navegación */
+}
+
+.main-nav ul li a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: #1F1F1F; /* Slate Black - Color del texto del enlace */
+    font-weight: bold;
+    transition: color 0.3s ease; /* Transición suave para el cambio de color al pasar el cursor */
+}
+
+.main-nav ul li a:hover {
+    color: #650021; /* Rosewood - Color del enlace al pasar el cursor */
+}
+
+.menu-icon {
+    font-size: 1.5em; /* Tamaño para el icono de tres rayas (hamburguesa) */
+}
+
+/* -------------------------------------------------- */
+/* Estilos para la navegación de utilidad en el Header */
+/* -------------------------------------------------- */
+.header-utility-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Para que los ítems estén en línea */
+}
+
+.header-utility-nav ul li {
+    margin-left: 20px;
+}
+
+.header-utility-nav ul li a {
+    text-decoration: none;
+    color: #1F1F1F; /* Slate Black */
+     font-family: "Cormorant Upright", serif;
+    font-weight: bold ;
+    font-size: 22px;
+    transition: color 0.3s ease;
+    text-justify: center;  /* Centra verticalmente */
+
+}
+
+.header-utility-nav ul li a:hover {
+    color: #650021; /* Rosewood */
+}
+
+.menu-icon {
+    font-size: 1.5em;
+}
+
+/* -------------------------------------------------- */
+/* 7. Estilos para el pie de página (Footer) */
+/* -------------------------------------------------- */
+.site-footer {
+    background-color: #1F1F1F; /* Slate Black - Color de fondo oscuro */
+    color: white; /* Color del texto */
+    padding: 40px 30px; /* Relleno interior */
+    text-align: center;
+}
+
+.footer-content {
+    display: flex; /* Usa Flexbox para organizar las columnas del footer */
+    justify-content: space-around; /* Distribuye el espacio entre las secciones de contacto y legal */
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.contact-info,
+.legal-links {
+    flex: 1; /* Ocupa espacio equitativo en Flexbox */
+    min-width: 250px; /* Ancho mínimo para cada columna, para responsividad */
+    margin: 15px; /* Margen alrededor de cada sección */
+}
+
+.contact-info h3,
+.legal-links h3 {
+    margin-top: 0;
+    color: #F5E6C2; /* Champagne Gold - Color de los títulos */
+}
+
+.contact-info p,
+.legal-links ul {
+    margin: 10px 0;
+    list-style: none; /* Elimina viñetas de las listas */
+    padding: 0;
+}
+
+.contact-info a,
+.legal-links a {
+    color: white; /* Color de los enlaces */
+    text-decoration: none; /* Elimina subrayado */
+    transition: color 0.3s ease; /* Transición de color al pasar el cursor */
+}
+
+.contact-info a:hover,
+.legal-links a:hover {
+    color: #F5E6C2; /* Champagne Gold - Color de los enlaces al pasar el cursor */
+}
+
+.social-media a {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.copyright {
+    border-top: 1px solid #B9AFAF; /* Mauve Gray - Línea separadora superior */
+    padding-top: 20px; /* Relleno superior */
+    margin-top: 20px; /* Margen superior */
+    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+}
