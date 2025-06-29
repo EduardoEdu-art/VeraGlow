@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - VeraGlow</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    function aplicarFiltros() {
+      const form = document.getElementById('filtros-form');
+      form.submit();
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fffaf9;
+      color: #333;
+    }
+    header, footer {
+      background-color: #f4e9e2;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      padding: 20px;
+    }
+    .filters {
+      width: 250px;
+      margin-right: 20px;
+    }
+    .product-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+    }
+    .product-card {
+      position: relative;
+      border-radius: 12px;
+      padding: 10px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-image {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .product-info {
+      margin-top: 10px;
+    }
+    .product-name, .product-brand, .product-price {
+      margin: 4px 0;
+    }
+    .add-to-cart {
+      display: none;
+      width: 100%;
+      margin-top: 10px;
+      padding: 8px;
+      border: none;
+      background-color: #dba9a3;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .product-card:hover .add-to-cart {
+      display: block;
+    }
+    .sold-out {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: #ff5e5e;
+      color: white;
+      padding: 4px 8px;
+      font-size: 12px;
+      border-radius: 5px;
+    }
+    .filters label {
+      display: block;
+      margin-top: 10px;
+    }
+    .filters input[type="checkbox"], .filters input[type="range"] {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>VeraGlow</h1>
+  </header>
+
+  <div class="container">
+    <form id="filtros-form" class="filters" method="GET" action="productos.php">
+      <h3>Disponibilidad en</h3>
+      <label><input type="checkbox" name="sucursal[]" value="Multiplaza"> Multiplaza</label>
+      <label><input type="checkbox" name="sucursal[]" value="Vía España"> Vía España</label>
+
+      <h3>Marca</h3>
+      <label><input type="checkbox" name="marca[]" value="Chanel"> Chanel</label>
+      <label><input type="checkbox" name="marca[]" value="Dior"> Dior</label>
+      <label><input type="checkbox" name="marca[]" value="Clarins"> Clarins</label>
+
+      <h3>Clase</h3>
+      <label><input type="checkbox" name="clase[]" value="Labios"> Labios</label>
+      <label><input type="checkbox" name="clase[]" value="Estuches"> Estuches</label>
+
+      <h3>Precio</h3>
+      <input type="range" name="precio_min" min="10" max="100" oninput="this.nextElementSibling.value = this.value">
+      <output>10</output>
+      <br>
+      <input type="range" name="precio_max" min="10" max="100" oninput="this.nextElementSibling.value = this.value">
+      <output>100</output>
+
+      <br><br>
+      <button type="button" onclick="aplicarFiltros()">Aplicar Filtros</button>
+    </form>
+
+    <div class="product-grid">
+      <?php include 'productos.php'; ?>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 VeraGlow. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
