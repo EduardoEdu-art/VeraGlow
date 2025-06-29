@@ -6,161 +6,78 @@
   <title>Tienda Online Demo</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&display=swap" rel="stylesheet" />
-  <style>
-    /* Reset y base */
-    * {
-      box-sizing: border-box;
-    }
-    body, html {
-      margin: 0; padding: 0; height: 100%;
-      font-family: "Cormorant Upright", serif;
-      background-color: #F9E2C5;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header, footer {
-      background: #650021;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      flex-shrink: 0;
-    }
-
-    main {
-      flex: 1 0 auto;
-      display: flex;
-      height: calc(100vh - 120px); /* Altura total menos header y footer (20+20+80 aprox) */
-      overflow: hidden;
-    }
-
-    .filters-sidebar {
-      background: #fff;
-      padding: 20px;
-      width: 280px;
-      border-radius: 0 20px 20px 0;
-      box-shadow: 2px 0 12px rgba(0,0,0,0.1);
-      overflow-y: auto;
-    }
-
-    .filters-sidebar h4 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: #650021;
-      font-size: 22px;
-      border-bottom: 2px solid #650021;
-      padding-bottom: 8px;
-    }
-
-    .filters-sidebar label {
-      display: block;
-      margin: 15px 0 6px;
-      font-weight: 600;
-      color: #333;
-    }
-
-    .filters-sidebar input[type=number],
-    .filters-sidebar select {
-      width: 100%;
-      padding: 6px 8px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-      font-family: inherit;
-    }
-
-    .product-grid {
-      flex: 1;
-      padding: 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      overflow-y: auto;
-    }
-
-    .product-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      padding: 15px;
-      position: relative;
-      transition: transform 0.3s;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    .product-image {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-      margin-bottom: 10px;
-    }
-    .product-info {
-      text-align: center;
-    }
-    .product-name {
-      font-weight: bold;
-      color: #1F1F1F;
-      font-size: 18px;
-    }
-    .product-brand {
-      font-size: 14px;
-      color: #777;
-      margin-top: 4px;
-    }
-    .product-price {
-      font-size: 18px;
-      color: #650021;
-      margin: 10px 0;
-    }
-    .product-desc {
-      font-size: 14px;
-      color: #444;
-      margin-bottom: 10px;
-    }
-    .add-to-cart {
-      display: none;
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #650021;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background 0.3s;
-      border: none;
-    }
-    .product-card:hover .add-to-cart {
-      display: block;
-    }
-
-    /* Scrollbar para filtro y productos */
-    .filters-sidebar::-webkit-scrollbar,
-    .product-grid::-webkit-scrollbar {
-      width: 8px;
-    }
-    .filters-sidebar::-webkit-scrollbar-thumb,
-    .product-grid::-webkit-scrollbar-thumb {
-      background-color: rgba(101, 0, 33, 0.4);
-      border-radius: 4px;
-    }
-  </style>
+  <link rel="stylesheet" href="estilosp.css" />
+  
 </head>
 <body>
+<header class="main-header">
+        <div class="header-left">
+            <img src="Imagenes/logo.jpeg" alt="Logo VeraGlow" class="logo">
+            <span class="site-name">VeraGlow</span>
+        </div>
+        <div class="header-utility-nav">
+            <ul>
+                <li><a href="usuario/registro.html"><img width="50" height="50" viewBox="0 0 50 50" src=""></img>Gestión de cuenta</a></li>
+                <li><a href="#"><img width="50" height="50" viewBox="0 0 50 50" src=""></img>Carrito de compras</a></li>
+            </ul>
+        </div>
+        </header>
 
-  <header>
-    <h1>Tienda Online Demo</h1>
-    <nav>
-      <!-- Aquí podrías poner links a otras secciones -->
+    <nav class="main-menu-nav">
+        <ul>
+            <li class="has-submenu">
+               <a>Maquillaje</a>
+                <ol class="submenu">
+                    <li><a href="#">Bases</a></li>
+                    <li><a href="#">Polvos</a></li>
+        <li class="has-submenu">
+            <a href="#">Labiales ▸</a>
+            <ol class="submenu nivel-2">
+                <li><a href="#">Gloss</a></li>
+            </ol>
+                    <li><a href="#">Blush</a></li>
+                    <li><a href="#">Correctores</a></li>
+        <li class="has-submenu">
+            <a href="#">Más ▸</a>  
+            <ol class="submenu nivel-2">
+                <li><a href="#">Fijarores</a></li>
+                <li><a href="#">Iluminadores</a></li>
+                <li><a href="#">Lapiz de ojos</a></li>
+                <li><a href="#">Contorno</a></li>
+            </ol>
+        </li>
+    </ol>
+</li>
+                    
+                </ol>
+            </li>
+            <li class="has-submenu">
+                <a>Cuidado del Cabello</a>
+                <ol class="submenu">
+                    <li><a href="#">Cabello Graso</a></li>
+                    <li><a href="#">Cabello Liso</a></li>
+                    <li><a href="#">Cabello Rizado</a></li>
+                </ol>
+            </li>
+            <li class="has-submenu">
+                <a> <img width="50" height="50" viewBox="0 0 50 50" src=""></img>Cuidado de la Cara</a>
+                <ol class="submenu">
+                    <li><a href="cara/productos.html">Primer</a></li>
+                    <li><a href="#">SkinCare</a></li>
+                    <li><a href="#">Bloqueadores faciales</a></li>
+                </ol>
+            </li>
+
+            <li class="has-submenu">
+                <a href="pieles/pieles.html">Detecta tu tono de piel</a>
+            </li>
+
+            <li class="has-submenu">
+                <a href="sobrenosotros/Quienesomos.html">Sobre Nosotros</a>
+            </li>
+        </ul>
     </nav>
-  </header>
+  
 
   <main>
     <aside class="filters-sidebar">
@@ -189,9 +106,30 @@
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 Mi Tienda Online. Todos los derechos reservados.</p>
-  </footer>
+  <footer class="site-footer">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Contacto</h3>
+                <p>Correo: <a href="mailto:tu.correo@example.com">tu.correo@example.com</a></p>
+                <p>Dirección: Tu Dirección, Ciudad, País</p>
+                <div class="social-media">
+                    <a href="#" target="_blank">Instagram</a>
+                </div>
+            </div>
+            <div class="legal-links">
+                <h3>Derechos y Políticas</h3>
+                <ul>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Cambios y Devoluciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 VeraGlow. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
 
   <script>
     let productos = [];
