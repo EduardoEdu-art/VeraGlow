@@ -16,11 +16,21 @@
             <span class="site-name">VeraGlow</span></a>
         </div>
         <div class="header-utility-nav">
-            <ul>
-                <li><a href="usuario/registro.html">Gestión de cuenta</a></li>
-                <li><a href="#">Carrito de compras</a></li>
-            </ul>
-        </div>
+  <ul>
+    <li>
+      <a href="usuario/registro.html">
+        <img src="Imagenes/profile-svgrepo-com.svg" alt="Cuenta" class="icono-svg">
+        
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="Imagenes/cart-svgrepo-com.svg" alt="Carrito" class="icono-svg">
+        
+      </a>
+    </li>
+  </ul>
+</div>
         </header>
 
     <nav class="main-menu-nav">
@@ -139,22 +149,24 @@
       }
 
       filtrados.forEach(p => {
-        const div = document.createElement('div');
-        div.className = 'product-card';
+  const ruta = `Imagenes/${p.categoria}/${p.imagen}`; // 👈 Aquí construyes la ruta
 
-        div.innerHTML = `
-          <img class="product-image" src="${p.imagen}" alt="${p.nombre}" />
-          <div class="product-info">
-            <div class="product-name">${p.nombre}</div>
-            <div class="product-brand">${p.marca}</div>
-            <div class="product-price">$${p.precio}</div>
-            <div class="product-desc">Ventas: ${p.ventas} | Lanzado: ${p.fecha_lanzamiento}</div>
-          </div>
-          <button class="add-to-cart">Agregar al carrito</button>
-        `;
+  const div = document.createElement('div');
+  div.className = 'product-card';
 
-        contenedor.appendChild(div);
-      });
+  div.innerHTML = `
+    <img class="product-image" src="${ruta}" alt="${p.nombre}" />
+    <div class="product-info">
+      <div class="product-name">${p.nombre}</div>
+      <div class="product-brand">${p.marca}</div>
+      <div class="product-price">$${p.precio}</div>
+       <div class="product-description">${p.descripcion || ''}</div>
+    </div>
+    <button class="add-to-cart">Agregar al carrito</button>
+  `;
+
+  contenedor.appendChild(div);
+});
     }
 
     document.getElementById('filtroMarca').addEventListener('change', mostrarProductos);

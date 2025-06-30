@@ -1,47 +1,93 @@
 [
   {
     "id": 1,
-    "nombre": "Zapatos Deportivos",
-    "marca": "Nike",
-    "precio": 120,
-    "fecha_lanzamiento": "2025-04-10",
+    "nombre": "Benefit the PoreProfessional",
+    "marca": "Benefit Coleccion",
+    "precio": 12.00,
     "ventas": 250,
-    "imagen": "https://via.placeholder.com/150"
+    "categoria": "Primer",
+    "imagen": "Benefit The POREfessional Pore Minimizing Primer.webp",
+    "descripcion": "Primer minimizador de poros que alisa la piel al instante, dejando un acabado suave y mate para que tu maquillaje dure todo el día."
   },
   {
     "id": 2,
-    "nombre": "Camiseta Casual",
-    "marca": "Adidas",
-    "precio": 35,
-    "fecha_lanzamiento": "2025-01-15",
-    "ventas": 400,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Agua Micelar",
+    "marca": "Garnier",
+    "precio": 5.00,
+    "categoria": "Skin care",
+    "imagen": "Agua micelar de garnier.webp",
+    "descripcion": "Limpia, desmaquilla y refresca el rostro en un solo paso. Ideal para todo tipo de piel, incluso las más sensibles."
   },
   {
     "id": 3,
-    "nombre": "Pantalón Jeans",
-    "marca": "Levis",
-    "precio": 60,
-    "fecha_lanzamiento": "2024-12-20",
-    "ventas": 150,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Limpiador Hidratante",
+    "marca": "CeraVe",
+    "precio": 15.00,
+    "categoria": "Skin care",
+    "imagen": "CeraVe – Limpiador hidratante.webp",
+    "descripcion": "Limpia suavemente sin alterar la barrera natural de la piel. Contiene ceramidas y ácido hialurónico para mantener la hidratación."
   },
   {
     "id": 4,
-    "nombre": "Sudadera",
-    "marca": "Nike",
-    "precio": 80,
-    "fecha_lanzamiento": "2025-03-05",
-    "ventas": 300,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Sunny Days SPF-30",
+    "marca": "Tower-28",
+    "precio": 12.00,
+    "categoria": "bloqueadores faciales",
+    "imagen": "Tower-28-SunnyDays-SPF-30-Tinted-Sunscreen.webp",
+    "descripcion": "Protector solar con color SPF 30, ideal para uso diario. Unifica el tono y protege la piel de los rayos UV sin sensación pesada."
   },
   {
     "id": 5,
-    "nombre": "Gorra",
-    "marca": "Adidas",
-    "precio": 25,
-    "fecha_lanzamiento": "2025-05-01",
-    "ventas": 500,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Milk Hydro Grip",
+    "marca": "Milk",
+    "precio": 20.00,
+    "categoria": "Primer",
+    "imagen": "Milk Hydro Grip Hydrating Primer.webp",
+    "descripcion": "Primer en gel con acabado hidratante que fija el maquillaje hasta por 12 horas, dejando la piel radiante y fresca."
+  },
+  {
+    "id": 6,
+    "nombre": "CeraVe suero con ceramidas",
+    "marca": "CeraVe",
+    "precio": 25.00,
+    "categoria": "Skin care",
+    "imagen": "CeraVe suero con ceramidas.webp",
+    "descripcion": "Suero ligero con ceramidas y ácido hialurónico que restaura la barrera de la piel, mejorando la hidratación y textura."
+  },
+  {
+    "id": 7,
+    "nombre": "Loreal Revitalif",
+    "marca": "Loreal",
+    "precio": 10.00,
+    "categoria": "Skin care",
+    "imagen": "Loreal revitalif.webp",
+    "descripcion": "Crema antiedad que hidrata profundamente y ayuda a reducir líneas de expresión, dejando la piel firme y luminosa."
+  },
+  {
+    "id": 8,
+    "nombre": "Milk Hydro Grip",
+    "marca": "Milk",
+    "precio": 20.00,
+    "categoria": "Primer",
+    "imagen": "Milk Hydro Grip Hydrating Primer.webp",
+    "descripcion": "Primer hidratante con acabado pegajosito que mantiene el maquillaje en su lugar todo el día sin resecar la piel."
+  },
+  {
+    "id": 9,
+    "nombre": "Uv Hydra fluide. SPF 50",
+    "marca": "La-Roche-Posay",
+    "precio": 20.00,
+    "categoria": "bloqueadores faciales",
+    "imagen": "La-Roche-Posay-UV-Hydra-Fluide-SPF-50.webp",
+    "descripcion": "Protector solar fluido ultra ligero con SPF 50, ideal para piel grasa o mixta. No deja residuo blanco y se absorbe rápido."
+  },
+  {
+    "id": 10,
+    "nombre": "Crema Nocturna",
+    "marca": "Tatcha",
+    "precio": 10.00,
+    "categoria": "Skin care",
+    "imagen": "Tatcha – Crema nocturna.webp",
+    "descripcion": "Crema nutritiva de noche con textura sedosa que hidrata en profundidad y regenera la piel mientras duermes."
   }
 ]

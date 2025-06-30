@@ -44,6 +44,18 @@ body {
     font-weight: bold; /* Negrita */
     color: #1F1F1F; /* Slate Black - Color del texto */
 }
+ .header-utility-nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icono-svg {
+  width: 20px;
+  height: 20px;
+  color: #650021
+}
+
 
 /* -------------------------------------------------- */
 /* 5. Estilos para la barra de navegación (Nav) */
@@ -86,38 +98,67 @@ body {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background-color: #F7CAC9;
     }
 
-    .carousel-container h2 {
-      color: #650021;
-      font-size: 2em;
-      margin-bottom: 20px;
-      
-    }
+  .carousel-section {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
-    .carousel-dots {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
+.carousel-container {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0; /* ¡Sin bordes redondeados! */
+  box-shadow: none;
+  margin: 0;
+}
 
-    .carousel-dot {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 3px solid #B9AFAF;
-      background-size: cover;
-      background-position: center;
-      cursor: pointer;
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
 
-    .carousel-dot:hover {
-      transform: scale(1.1);
-      border-color: #650021;
-    } 
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+   .carousel-slide img {
+  width: 99%;
+  height: 70vh; /* o ponle 600px si no quieres toda la pantalla */
+  object-fit: cover;
+  display: block;
+}
+
+
+
+/* Botones de navegación */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  z-index: 2;
+  border-radius: 50%;
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
 
 /* -------------------------------------------------- */
 /* Estilos para la sección de Productos */

@@ -1,47 +1,95 @@
 [
   {
     "id": 1,
-    "nombre": "Zapatos Deportivos",
-    "marca": "Nike",
-    "precio": 120,
-    "fecha_lanzamiento": "2025-04-10",
-    "ventas": 250,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Rhode Gloss",
+    "marca": "Rhode",
+    "precio": 19,
+    "ventas": 500,
+    "categoria": "Labiales",
+    "imagen": "rhode gloss.webp",
+    "descripcion": "Gloss hidratante con acabado brillante."
   },
   {
     "id": 2,
-    "nombre": "Camiseta Casual",
-    "marca": "Adidas",
-    "precio": 35,
-    "fecha_lanzamiento": "2025-01-15",
-    "ventas": 400,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Charlotte Tibury Base de maquillaje",
+    "marca": "Charlotte Tibury",
+    "precio": 50.00,
+    "ventas": 500,
+    "categoria": "Bases",
+    "imagen": "Charlotte Tilbury Beautiful Skin Foundation.webp",
+    "descripcion": "Base con cobertura media y acabado luminoso."
   },
   {
     "id": 3,
-    "nombre": "Pantalón Jeans",
-    "marca": "Levis",
-    "precio": 60,
-    "fecha_lanzamiento": "2024-12-20",
-    "ventas": 150,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Rare Beauty Stay Blush",
+    "marca": "Rare Beauty",
+    "precio": 29.99,
+    "ventas": 1200,
+    "categoria": "Blush",
+    "imagen": "stay.webp",
+    "descripcion": "Rubor en crema de larga duración con acabado natural."
   },
   {
     "id": 4,
-    "nombre": "Sudadera",
-    "marca": "Nike",
-    "precio": 80,
-    "fecha_lanzamiento": "2025-03-05",
-    "ventas": 300,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Maybelline SuperStay",
+    "marca": "Maybelline NY",
+    "categoria": "Labiales",
+    "precio": 18.99,
+     "imagen": "Maybelline SuperStay  red hot color.webp",
+    "descripcion": "Labial líquido de larga duración con acabado mate y color intenso."
   },
   {
     "id": 5,
-    "nombre": "Gorra",
-    "marca": "Adidas",
-    "precio": 25,
-    "fecha_lanzamiento": "2025-05-01",
-    "ventas": 500,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Fenty Invisiatte Blotting Powder",
+    "marca": "Fenty",
+    "categoria": "Polvos",
+    "precio": 25.00,
+    "descripcion": "Polvo compacto translúcido ideal para matificar y sellar el maquillaje.",
+    "imagen": "Fenty Invisimatte Blotting Powder.webp"
+  },
+   {
+    "id": 6,
+    "nombre": "Milk pore Eclipse Matte spray",
+    "marca": "Milk",
+    "categoria": "Fijadores",
+    "precio": 6.00,
+    "descripcion": "Spray fijador matificante que reduce la apariencia de poros y controla el brillo.",
+    "imagen": "Milk Pore Eclipse Matte Setting Spray.webp"
+  },
+{
+    "id": 7,
+    "nombre": "Mascara SkyHigh",
+    "marca": "Maybelline NY",
+    "categoria": "Lapiz de ojos",
+    "precio": 7.00,
+    "descripcion": "Máscara de pestañas para alargamiento extremo y volumen ligero.",
+    "imagen": "Maybelline Sky High Mascara.webp"
+  },
+  {
+    "id": 8,
+    "nombre": "Hydrating Concealer",
+    "marca": "E.L.F",
+    "categoria": "Correctores",
+    "precio": 20.00,
+    "descripcion": "Corrector hidratante de cobertura media-alta para un acabado natural.",
+    "imagen": "e.l.f. Hydrating Camo Concealer.webp"
+  },
+  {
+    "id": 9,
+    "nombre": "Contour Kit",
+    "marca": "Anastasia",
+    "categoria": "Contorno",
+    "precio": 38.00,
+    "descripcion": "Kit de contorno en polvo con tonos para esculpir y definir el rostro.",
+    "imagen": "Anastasia Contour Kit.webp"
+  },
+  {
+    "id": 10,
+    "nombre": "Forever Glow",
+    "marca": "Dior",
+    "categoria": "Iluninador",
+    "precio": 30.00,
+    "descripcion": "Iluminador líquido con acabado radiante para un brillo natural.",
+    "imagen": "Forever Glow Liquid Highlighter - dior.webp"
   }
 ]

@@ -1,47 +1,92 @@
 [
   {
     "id": 1,
-    "nombre": "Zapatos Deportivos",
-    "marca": "Nike",
-    "precio": 120,
-    "fecha_lanzamiento": "2025-04-10",
-    "ventas": 250,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Shampoo Pepino",
+    "marca": "Garnier",
+    "precio": 15.00,
+    "categoria": "Cabello graso",
+    "imagen": "Garnier Pepino.webp",
+    "descripcion": "Refresca y purifica el cuero cabelludo con este shampoo de pepino, ideal para eliminar el exceso de grasa sin resecar el cabello."
   },
   {
     "id": 2,
-    "nombre": "Camiseta Casual",
-    "marca": "Adidas",
-    "precio": 35,
-    "fecha_lanzamiento": "2025-01-15",
-    "ventas": 400,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Cocout Milk shampoo + Conditioner",
+    "marca": "Herbal Essences ",
+    "precio": 10.00,
+    "categoria": "Cabello liso",
+    "imagen": "Herbal Essences Coconut Milk Shampoo + Conditioner.webp",
+    "descripcion": "Una mezcla suave de shampoo y acondicionador con leche de coco que hidrata profundamente, dejando el cabello liso."
   },
   {
     "id": 3,
-    "nombre": "Pantalón Jeans",
-    "marca": "Levis",
-    "precio": 60,
-    "fecha_lanzamiento": "2024-12-20",
-    "ventas": 150,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Curl Custad",
+    "marca": "Aunt Jackie",
+    "precio": 12.00,
+    "categoria": "Cabello rizado",
+    "imagen": "Aunt Jackie’s Curl Custard.webp",
+    "descripcion": "Define y nutre tus rizos con esta crema custard, perfecta para controlar el frizz y mantener rizos suaves y con movimiento todo el día."
   },
   {
     "id": 4,
-    "nombre": "Sudadera",
-    "marca": "Nike",
-    "precio": 80,
-    "fecha_lanzamiento": "2025-03-05",
-    "ventas": 300,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Mascarilla Capilar",
+    "marca": "Garnier",
+    "precio": 12.00,
+    "categoria": "Cabello liso",
+    "imagen": "Mascarilla capilar.webp",
+    "descripcion": "Tratamiento intensivo que repara y suaviza el cabello liso, dejándolo sedoso, manejable y visiblemente más sano desde la primera aplicación."
   },
   {
     "id": 5,
-    "nombre": "Gorra",
-    "marca": "Adidas",
-    "precio": 25,
-    "fecha_lanzamiento": "2025-05-01",
-    "ventas": 500,
-    "imagen": "https://via.placeholder.com/150"
+    "nombre": "Rizos Poderosos kit",
+    "marca": "Garnier",
+    "precio": 30.00,
+    "categoria": "Cabello rizado",
+    "imagen": "Garnier Fructis Rizos Poderosos  kits.webp",
+    "descripcion": "Kit completo para rizos definidos y llenos de vida. Incluye shampoo, acondicionador y crema para peinar que hidratan y activan los rizos."
+  },
+  {
+    "id": 6,
+    "nombre": "Aceite de Argán Reparador",
+    "marca": "OGX",
+    "precio": 18.50,
+    "categoria": "Cabello rizado",
+    "imagen": "OGX Aceite de Argan.webp",
+    "descripcion": "Aceite ligero con argán de Marruecos que repara puntas abiertas, da brillo y suaviza el cabello rizado sin dejarlo graso."
+  },
+  {
+    "id": 7,
+    "nombre": "Liso Extremo",
+    "marca": "Pantene",
+    "precio": 11.99,
+    "categoria": "Cabello liso",
+    "imagen": "Pantene liso extremo.webp",
+    "descripcion": "Shampoo con fórmula Pro-V que controla el frizz y alisa intensamente desde la raíz hasta las puntas, dejando el cabello brillante y manejable."
+  },
+  {
+    "id": 8,
+    "nombre": "Mascarilla Capilar Aloe vera",
+    "marca": "Garnier",
+    "precio": 16.00,
+    "categoria": "Cabello graso",
+    "imagen": "Mascarilla.webp",
+    "descripcion": "Con aloe vera purificante, esta mascarilla equilibra el cuero cabelludo y aporta hidratación ligera, ideal para cabello con tendencia grasa."
+  },
+  {
+    "id": 9,
+    "nombre": "Loreal Shampoo",
+    "marca": "El vive Loreal",
+    "precio": 9.50,
+    "categoria": "Cabello liso",
+    "imagen": "Loreal.webp",
+    "descripcion": "Shampoo nutritivo que limpia suavemente y mejora la textura del cabello liso, aportando brillo y reduciendo el frizz desde el primer uso."
+  },
+  {
+    "id": 10,
+    "nombre": "Crema Activadora de Rizos",
+    "marca": "Cantu",
+    "precio": 14.50,
+    "categoria": "Cabello rizado",
+    "imagen": "Cantu Curl Activator Cream.webp",
+    "descripcion": "Crema enriquecida con manteca de karité que activa, define y fortalece los rizos, reduciendo el frizz y aportando hidratación intensa."
   }
 ]

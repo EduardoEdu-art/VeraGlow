@@ -17,12 +17,17 @@
              <a href="Proyecto Final - VeraGlow.html"></a><img src="Imagenes/logo.jpeg" alt="Logo VeraGlow" class="logo">
             <span class="site-name">VeraGlow</span></a>
         </div>
-        <div class="header-utility-nav">
-            <ul>
-                <li><a href="usuario/registro.html">Gestión de cuenta</a></li>
-                <li><a href="#">Carrito de compras</a></li>
-            </ul>
-        </div>
+         <div class="header-utility-nav">
+  <ul>
+    <li>
+      <a href="usuario/registro.html">
+        <img src="Imagenes/profile-svgrepo-com.svg" alt="Cuenta" class="icono-svg">
+        
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="Imagenes/cart-svgrepo-com.svg" alt="Carrito" class="icono-svg">
         </header>
 
     <nav class="main-menu-nav">
@@ -49,31 +54,29 @@
 
     <main>
         <section class="carousel-section">
-    <div class="carousel-container">
-      <div class="carousel-dots">
-        <div class="carousel-dot"
-             style="background-image: url('Imagenes/Bases/Fanty.webp');">
-        </div>
-
-        <!-- Agrega más imágenes aquí -->
-        <div class="carousel-dot"
-             style="background-image: url('imagenes/ejemplo2.jpg');">
-        </div>
-
-        <!-- Puedes copiar este bloque para añadir más imágenes personalizadas -->
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="Imagenes/carrusel/maquillaje.webp">
+      </div>
+      <div class="carousel-slide">
+        <img src="Imagenes/carrusel/mujer-skin-care.webp">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/carrusel/mujeres-horizontal.webp">
       </div>
     </div>
-  </section>
-
-<p> HOLA MUNDO</p>
-
-
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+</section>
 
         <section class="products-section">
             <h2>Destacados</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="ruta/a/imagen_producto1.jpg" alt="Producto 1">
+                    <img src="Imagenes/Fijadores/L’Oréal Infallible 3-Second Setting Mist.webp" alt="L’Oréal Fijadores">
+                    <div class="product-name">L’Oréal Infallible 3-Second Setting Mist</div>
                     <div class="hover-options">
                         <div class="option-circle"></div>
                         <div class="option-circle"></div>
@@ -82,7 +85,8 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="ruta/a/imagen_producto2.jpg" alt="Producto 2">
+                    <img src="Imagenes/Blush/Stay.webp" alt="Producto 2">
+                    <div class="product-name"> Rare Stay </div>
                     <div class="hover-options">
                         <div class="option-circle"></div>
                         <div class="option-circle"></div>
@@ -91,7 +95,8 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="ruta/a/imagen_producto3.jpg" alt="Producto 3">
+                    <img src="Imagenes/Labiales/rhode gloss.webp" alt="Producto 3">
+                    <div class="product-name">rhode gloss</div>
                     <div class="hover-options">
                         <div class="option-circle"></div>
                         <div class="option-circle"></div>
@@ -100,7 +105,8 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="ruta/a/imagen_producto4.jpg" alt="Producto 4">
+                    <img src="Imagenes/contorno/Sheglam Sun Sculpt Liquid Contour.webp" alt="Producto 4">
+                    <div class="product-name">Sheglam contorno </div>
                     <div class="hover-options">
                         <div class="option-circle"></div>
                         <div class="option-circle"></div>
@@ -109,7 +115,8 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="ruta/a/imagen_producto5.jpg" alt="Producto 5">
+                    <img src="Imagenes/bloqueadores faciales/Tower-28-SunnyDays-SPF-30-Tinted-Sunscreen.webp" alt="Producto 5">
+                    <div class="product-name">Tower-28-SunnyDays-SPF-30-Tinted-Sunscreen</div>
                     <div class="hover-options">
                         <div class="option-circle"></div>
                         <div class="option-circle"></div>
@@ -117,16 +124,6 @@
                         <div class="option-circle"></div>
                     </div>
                 </div>
-                <div class="product-card">
-                    <img src="ruta/a/imagen_producto6.jpg" alt="Producto 6">
-                    <div class="hover-options">
-                        <div class="option-circle"></div>
-                        <div class="option-circle"></div>
-                        <div class="option-circle"></div>
-                        <div class="option-circle"></div>
-                    </div>
-                </div>
-            </div>
         </section>
     </main>
 
@@ -154,6 +151,32 @@
         </div>
     </footer>
 
-    
+    <script>
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const nextButton = document.querySelector('.carousel-btn.next');
+  const prevButton = document.querySelector('.carousel-btn.prev');
+  let currentIndex = 0;
+
+  function updateSlidePosition() {
+    track.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+  }
+
+  nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlidePosition();
+  });
+
+  prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlidePosition();
+  });
+
+  // Si quieres que se mueva solo
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlidePosition();
+  }, 5000); // cada 5 segundos
+</script>
 </body>
 </html>

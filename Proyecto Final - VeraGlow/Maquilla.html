@@ -15,12 +15,22 @@
             <a href="Proyecto Final - VeraGlow.html"></a><img src="Imagenes/logo.jpeg" alt="Logo VeraGlow" class="logo">
             <span class="site-name">VeraGlow</span></a>
         </div>
-        <div class="header-utility-nav">
-            <ul>
-                <li><a href="usuario/registro.html">Gestión de cuenta</a></li>
-                <li><a href="#">Carrito de compras</a></li>
-            </ul>
-        </div>
+       <div class="header-utility-nav">
+  <ul>
+    <li>
+      <a href="usuario/registro.html">
+        <img src="Imagenes/profile-svgrepo-com.svg" alt="Cuenta" class="icono-svg">
+        
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <img src="Imagenes/cart-svgrepo-com.svg" alt="Carrito" class="icono-svg">
+        
+      </a>
+    </li>
+  </ul>
+</div>
         </header>
 
     <nav class="main-menu-nav">
@@ -73,29 +83,29 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>Contacto</h3>
-                <p>Correo: <a href="mailto:tu.correo@example.com">tu.correo@example.com</a></p>
-                <p>Dirección: Tu Dirección, Ciudad, País</p>
-                <div class="social-media">
-                    <a href="#" target="_blank">Instagram</a>
-                </div>
-            </div>
-            <div class="legal-links">
-                <h3>Derechos y Políticas</h3>
-                <ul>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
-                    <li><a href="#">Cambios y Devoluciones</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2025 VeraGlow. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="contact-info">
+      <h3>Contacto</h3>
+      <p>Correo: <a href="mailto:correo@example.com">correo@example.com</a></p>
+      <p>Dirección: Panamá, Ciudad Bella</p>
+      <div class="social-media">
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="legal-links">
+      <h3>Legal</h3>
+      <ul>
+        <li><a href="#">Términos</a></li>
+        <li><a href="#">Privacidad</a></li>
+        <li><a href="#">Devoluciones</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">
+    &copy; 2025 VeraGlow. Todos los derechos reservados.
+  </div>
+</footer>
 
 
   <script>
@@ -139,22 +149,40 @@
       }
 
       filtrados.forEach(p => {
-        const div = document.createElement('div');
-        div.className = 'product-card';
+  const div = document.createElement('div');
+  div.className = 'product-card';
 
-        div.innerHTML = `
-          <img class="product-image" src="${p.imagen}" alt="${p.nombre}" />
-          <div class="product-info">
-            <div class="product-name">${p.nombre}</div>
-            <div class="product-brand">${p.marca}</div>
-            <div class="product-price">$${p.precio}</div>
-            <div class="product-desc">Ventas: ${p.ventas} | Lanzado: ${p.fecha_lanzamiento}</div>
-          </div>
-          <button class="add-to-cart">Agregar al carrito</button>
-        `;
+  // ✅ Aquí va el ID seguro para cada imagen
+  const idImg = `img-${p.id}`;
 
-        contenedor.appendChild(div);
-      });
+  // ✅ Esta es la ruta de la imagen principal (la primera variante o imagen base)
+  const primeraImagen = p.variantes?.[0]?.imagen || p.imagen;
+  const rutaImagen = `Imagenes/${p.categoria}/${primeraImagen}`;
+
+  // ✅ Esto crea los circulitos de colores (si hay variantes)
+  const colorCircles = (p.variantes || []).map((v, i) => `
+    <div 
+      class="color-circle" 
+      style="background-color: ${v.color}" 
+      onclick="document.getElementById('${idImg}').src='Imagenes/${p.categoria}/${v.imagen}'"
+    ></div>
+  `).join('');
+
+  // ✅ Este es todo el HTML del producto
+  div.innerHTML = `
+    <img id="${idImg}" class="product-image" src="${rutaImagen}" alt="${p.nombre}" />
+    <div class="product-info">
+      <div class="product-name">${p.nombre}</div>
+      <div class="product-brand">${p.marca}</div>
+      <div class="product-price">$${p.precio}</div>
+      <div class="product-desc">${p.descripcion || 'Sin descripción.'}</div>
+    </div>
+    <div class="color-options">${colorCircles}</div>
+    <button class="add-to-cart">Agregar al carrito</button>
+  `;
+
+  contenedor.appendChild(div);
+});
     }
 
     document.getElementById('filtroMarca').addEventListener('change', mostrarProductos);
