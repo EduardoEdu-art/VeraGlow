@@ -121,7 +121,7 @@
         fecha_nacimiento: document.getElementById("fecha_nacimiento").value
       };
 
-      fetch("TU_URL_DEL_SCRIPT", {
+      fetch("https://script.google.com/macros/s/AKfycby3_d-cmogq7dHJEovZQd5EYOuzNMTdB56Y5F50lE1XUC2ma1mvc2wKmO95zP0dtBKj2w/exec", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -138,6 +138,7 @@
         alert("Hubo un error al registrar. Intenta más tarde.");
       });
     });
+
   </script>
 </body>
 </html>
