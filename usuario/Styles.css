@@ -1,77 +1,21 @@
-/* Estilos generales para VeraGlow Registro */
-body {
-  font-family: "Cormorant Upright", serif;
-  background-color: #F9E2C5;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+ body {
+      background-color: #F9E2C5;
+      font-family: "Cormorant Upright", serif;
+      margin: 0;
+      padding: 0;
+    }
 
+    .registro-formulario {
+      max-width: 900px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
 
-
-/* Contenedor del formulario */
-.registro-container {
-  background-color: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  width: 90%;
-  text-align: center;
-}
-
-.registro-container h1 {
-  color: #650021;
-  margin-bottom: 30px;
-  font-size: 2.2em;
-}
-
-/* Etiquetas */
-form label {
-  display: block;
-  text-align: left;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #1F1F1F;
-}
-
-/* Campos de entrada */
-form input,
-form select {
-  width: 100%;
-  padding: 14px;
-  margin-bottom: 20px;
-  border: 2px solid #B9AFAF;
-  border-radius: 8px;
-  font-size: 16px;
-  font-family: "Cormorant Upright", serif;
-  transition: border-color 0.3s;
-}
-
-form input:focus,
-form select:focus {
-  outline: none;
-  border-color: #650021;
-}
-
-/* Botón */
-button {
-  background-color: #650021;
-  color: white;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-family: "Cormorant Upright", serif;
-}
-
-button:hover {
-  background-color: #F7CAC9;
-  color: #1F1F1F;
-}
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+    }

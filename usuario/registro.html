@@ -14,61 +14,11 @@
 
 <body>
   
-<form id="formRegistro">
-  <label for="nombre">Nombre</label>
-  <input type="text" id="nombre" required>
+ <div class="registro-formulario">
+    <h1 style="text-align: center; color: #650021;">Registro de Usuario VeraGlow</h1>
+    
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSejf4TL9QywJt1ly3NjttLbOLJVVnwJ_EfoZWTe1O-UB1aLrQ/viewform?embedded=true" width="640" height="1218" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+    
+  </div>
 
-  <label for="apellido">Apellido</label>
-  <input type="text" id="apellido" required>
-
-  <label for="correo">Correo Electrónico</label>
-  <input type="email" id="correo" required>
-
-  <label for="pais">País</label>
-  <select id="pais" required>
-    <option value="">Selecciona tu país</option>
-    <option value="Panamá">Panamá</option>
-    <option value="Colombia">Colombia</option>
-    <option value="México">México</option>
-    <option value="Argentina">Argentina</option>
-    <option value="Otro">Otro</option>
-  </select>
-
-  <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-  <input type="date" id="fecha_nacimiento" required>
-
-  <button type="submit">Registrarse</button>
-</form>
-
-
-<script>
-  document.getElementById("formRegistro").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const data = {
-      nombre: document.getElementById("nombre").value,
-      apellido: document.getElementById("apellido").value,
-      correo: document.getElementById("correo").value,
-      pais: document.getElementById("pais").value,
-      fecha_nacimiento: document.getElementById("fecha_nacimiento").value
-    };
-
-    fetch("https://script.google.com/macros/s/AKfycbxJn9HKCXj9_DMR9B9V6DUE-armpilYxD0Ig7U5xj02wkyk2Ey4UQL8xF_IZiYlr0rP/exec", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then(res => res.text())
-    .then(msg => {
-      alert("✅ ¡Registro exitoso!");
-      document.getElementById("formRegistro").reset();
-    })
-    .catch(err => {
-      console.error("❌ Error:", err);
-      alert("Hubo un error al registrar.");
-    });
-  });
-</script>
 </body></html>
