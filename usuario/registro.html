@@ -1,143 +1,56 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <title>Registro de Usuario - VeraGlow</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: "Cormorant Upright", serif;
-      background-color: #F9E2C5;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+<form id="formRegistro">
+  <label for="nombre">Nombre</label>
+  <input type="text" id="nombre" required>
 
-    .registro-container {
-      background-color: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      max-width: 500px;
-      width: 100%;
-      text-align: center;
-    }
+  <label for="apellido">Apellido</label>
+  <input type="text" id="apellido" required>
 
-    .registro-container h1 {
-      color: #650021;
-      margin-bottom: 30px;
-    }
+  <label for="correo">Correo Electrónico</label>
+  <input type="email" id="correo" required>
 
-    form label {
-      display: block;
-      text-align: left;
-      margin-bottom: 5px;
-      font-weight: bold;
-      color: #1F1F1F;
-    }
+  <label for="pais">País</label>
+  <select id="pais" required>
+    <option value="">Selecciona tu país</option>
+    <option value="Panamá">Panamá</option>
+    <option value="Colombia">Colombia</option>
+    <option value="México">México</option>
+    <option value="Argentina">Argentina</option>
+    <option value="Otro">Otro</option>
+  </select>
 
-    form input,
-    form select {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 20px;
-      border: 2px solid #B9AFAF;
-      border-radius: 8px;
-      font-size: 16px;
-      font-family: "Cormorant Upright", serif;
-      transition: border-color 0.3s;
-    }
+  <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+  <input type="date" id="fecha_nacimiento" required>
 
-    form input:focus,
-    form select:focus {
-      outline: none;
-      border-color: #650021;
-    }
+  <button type="submit">Registrarse</button>
+</form>
 
-    button {
-      background-color: #650021;
-      color: white;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      font-family: "Cormorant Upright", serif;
-    }
+<script>
+  document.getElementById("formRegistro").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-    button:hover {
-      background-color: #F7CAC9;
-      color: #1F1F1F;
-    }
-  </style>
-</head>
-<body>
-  <div class="registro-container">
-    <h1>Registro de Usuario</h1>
-    <form id="formRegistro">
-      <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" required>
+    const data = {
+      nombre: document.getElementById("nombre").value,
+      apellido: document.getElementById("apellido").value,
+      correo: document.getElementById("correo").value,
+      pais: document.getElementById("pais").value,
+      fecha_nacimiento: document.getElementById("fecha_nacimiento").value
+    };
 
-      <label for="apellido">Apellido</label>
-      <input type="text" id="apellido" required>
-
-      <label for="correo">Correo Electrónico</label>
-      <input type="email" id="correo" required>
-
-      <label for="pais">País</label>
-      <select id="pais" required>
-        <option value="">Selecciona tu país</option>
-        <option value="Panamá">Panamá</option>
-        <option value="Colombia">Colombia</option>
-        <option value="México">México</option>
-        <option value="Argentina">Argentina</option>
-        <option value="Otro">Otro</option>
-      </select>
-
-      <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-      <input type="date" id="fecha_nacimiento" required>
-
-      <button type="submit">Registrarse</button>
-    </form>
-  </div>
-
-  <script>
-    document.getElementById("formRegistro").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const data = {
-        nombre: document.getElementById("nombre").value,
-        apellido: document.getElementById("apellido").value,
-        correo: document.getElementById("correo").value,
-        pais: document.getElementById("pais").value,
-        fecha_nacimiento: document.getElementById("fecha_nacimiento").value
-      };
-
-      fetch("https://script.google.com/macros/s/AKfycbxrhtJSQWtlEONXl-TPGeuP1nuMO1oR7OdXDcnYSOVYcDkIw48e9XVQcKMfEGUSpyD9/exec", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-      .then(res => res.text())
-      .then(msg => {
-        alert("✅ ¡Registro exitoso guardado en Google Sheets!");
-        document.getElementById("formRegistro").reset();
-      })
-      .catch(err => {
-        console.error("❌ Error:", err);
-        alert("Hubo un error al registrar. Intenta más tarde.");
-      });
+    fetch("https://script.google.com/macros/s/AKfycbxJn9HKCXj9_DMR9B9V6DUE-armpilYxD0Ig7U5xj02wkyk2Ey4UQL8xF_IZiYlr0rP/exec", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => res.text())
+    .then(msg => {
+      alert("✅ ¡Registro exitoso!");
+      document.getElementById("formRegistro").reset();
+    })
+    .catch(err => {
+      console.error("❌ Error:", err);
+      alert("Hubo un error al registrar.");
     });
-
-  </script>
-</body>
-</html>
+  });
+</script>
