@@ -3,85 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tienda Online Demo</title>
+  <title>Maquillaje - VeraGlow</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="cara/estilosp.css" />
-  
 </head>
 <body>
+
 <header class="main-header">
-        <div class="header-left">
-            <a href="Proyecto Final - VeraGlow.html"></a><img src="Imagenes/logo.jpeg" alt="Logo VeraGlow" class="logo">
-            <span class="site-name">VeraGlow</span></a>
-        </div>
-       <div class="header-utility-nav">
+  <div class="header-left">
+    <a href="Proyecto Final - VeraGlow.html">
+      <img src="Imagenes/logo.jpeg" alt="Logo VeraGlow" class="logo">
+      <span class="site-name">VeraGlow</span>
+    </a>
+  </div>
+  <div class="header-utility-nav">
+    <ul>
+      <li>
+        <a href="usuario/registro.html">
+          <img src="Imagenes/profile-svgrepo-com.svg" alt="Cuenta" class="icono-svg">
+        </a>
+      </li>
+      <li style="position: relative;">
+        <a href="Carrito de Veraglow.html">
+          <img src="Imagenes/cart-svgrepo-com.svg" alt="Carrito" class="icono-svg">
+          <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background-color: red; color: white; border-radius: 50%; font-size: 12px; padding: 2px 6px;">0</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<nav class="main-menu-nav">
   <ul>
-    <li>
-      <a href="usuario/registro.html">
-        <img src="Imagenes/profile-svgrepo-com.svg" alt="Cuenta" class="icono-svg">
-        
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <img src="Imagenes/cart-svgrepo-com.svg" alt="Carrito" class="icono-svg">
-        
-      </a>
-    </li>
+    <li><a href="Maquilla.html">Maquillaje</a></li>
+    <li><a href="Cuidadodecabello.html">Cuidado del Cabello</a></li>
+    <li><a href="cuidadocara.html">SkinCare</a></li>
+    <li><a href="pieles/pieles.html">Detecta tu tono de piel</a></li>
+    <li><a href="sobrenosotros/Quienesomos.html">Sobre Nosotros</a></li>
   </ul>
-</div>
-        </header>
+</nav>
 
-    <nav class="main-menu-nav">
-        <ul>
-            <li class="has-submenu">
-               <a href="Maquilla.html">Maquillaje</a>
-            </li>
-            <li class="has-submenu">
-                <a href="Cuidadodecabello.html">Cuidado del Cabello</a>
-            </li>
-            <li class="has-submenu">
-                <a href="cuidadocara.html"> </img>SkinCare</a>
-            </li>
+<main>
+  <aside class="filters-sidebar">
+    <h4>Filtros</h4>
 
-            <li class="has-submenu">
-                <a href="pieles/pieles.html">Detecta tu tono de piel</a>
-            </li>
+    <label for="filtroMarca">Marca:</label>
+    <select id="filtroMarca"><option value="">Todas</option></select>
 
-            <li class="has-submenu">
-                <a href="sobrenosotros/Quienesomos.html">Sobre Nosotros</a>
-            </li>
-        </ul>
-    </nav>
-  
+    <label for="precioMin">Precio mínimo:</label>
+    <input type="number" id="precioMin" value="0" min="0" />
 
-  <main>
-    <aside class="filters-sidebar">
-      <h4>Filtros</h4>
+    <label for="precioMax">Precio máximo:</label>
+    <input type="number" id="precioMax" value="1000" min="0" />
 
-      <label for="filtroMarca">Marca:</label>
-      <select id="filtroMarca">
-        <option value="">Todas</option>
-      </select>
+    <label for="orden">Ordenar por:</label>
+    <select id="orden">
+      <option value="nuevo">Más nuevo</option>
+      <option value="vendido">Más vendido</option>
+    </select>
+  </aside>
 
-      <label for="precioMin">Precio mínimo:</label>
-      <input type="number" id="precioMin" value="0" min="0" />
-
-      <label for="precioMax">Precio máximo:</label>
-      <input type="number" id="precioMax" value="1000" min="0" />
-
-      <label for="orden">Ordenar por:</label>
-      <select id="orden">
-        <option value="nuevo">Más nuevo</option>
-        <option value="vendido">Más vendido</option>
-      </select>
-    </aside>
-
-    <section class="product-grid" id="productosContainer">
-      <!-- Productos se cargan aquí -->
-    </section>
-  </main>
+  <section class="product-grid" id="productosContainer">
+    <!-- Productos se cargan aquí -->
+  </section>
+</main>
 
 <footer class="site-footer">
   <div class="footer-content">
@@ -107,100 +93,118 @@
   </div>
 </footer>
 
+<script>
+  let productos = [];
 
-  <script>
-    let productos = [];
+  function cargarMarcas() {
+    const filtroMarca = document.getElementById('filtroMarca');
+    const marcas = [...new Set(productos.map(p => p.marca))];
+    marcas.forEach(marca => {
+      const option = document.createElement('option');
+      option.value = marca;
+      option.textContent = marca;
+      filtroMarca.appendChild(option);
+    });
+  }
 
-    function cargarMarcas() {
-      const filtroMarca = document.getElementById('filtroMarca');
-      const marcas = [...new Set(productos.map(p => p.marca))];
-      marcas.forEach(marca => {
-        const option = document.createElement('option');
-        option.value = marca;
-        option.textContent = marca;
-        filtroMarca.appendChild(option);
-      });
+  function mostrarProductos() {
+    const contenedor = document.getElementById('productosContainer');
+    contenedor.innerHTML = '';
+
+    const marca = document.getElementById('filtroMarca').value;
+    const precioMin = Number(document.getElementById('precioMin').value);
+    const precioMax = Number(document.getElementById('precioMax').value);
+    const orden = document.getElementById('orden').value;
+
+    let filtrados = productos.filter(p => {
+      return (marca === '' || p.marca === marca) &&
+             p.precio >= precioMin &&
+             p.precio <= precioMax;
+    });
+
+    if (orden === 'nuevo') {
+      filtrados.sort((a, b) => new Date(b.fecha_lanzamiento) - new Date(a.fecha_lanzamiento));
+    } else if (orden === 'vendido') {
+      filtrados.sort((a, b) => b.ventas - a.ventas);
     }
 
-    function mostrarProductos() {
-      const contenedor = document.getElementById('productosContainer');
-      contenedor.innerHTML = '';
-
-      const marca = document.getElementById('filtroMarca').value;
-      const precioMin = Number(document.getElementById('precioMin').value);
-      const precioMax = Number(document.getElementById('precioMax').value);
-      const orden = document.getElementById('orden').value;
-
-      let filtrados = productos.filter(p => {
-        return (marca === '' || p.marca === marca) &&
-               p.precio >= precioMin &&
-               p.precio <= precioMax;
-      });
-
-      if (orden === 'nuevo') {
-        filtrados.sort((a, b) => new Date(b.fecha_lanzamiento) - new Date(a.fecha_lanzamiento));
-      } else if (orden === 'vendido') {
-        filtrados.sort((a, b) => b.ventas - a.ventas);
-      }
-
-      if (filtrados.length === 0) {
-        contenedor.textContent = 'No hay productos que coincidan con los filtros.';
-        return;
-      }
-
-      filtrados.forEach(p => {
-  const div = document.createElement('div');
-  div.className = 'product-card';
-
-  // ✅ Aquí va el ID seguro para cada imagen
-  const idImg = `img-${p.id}`;
-
-  // ✅ Esta es la ruta de la imagen principal (la primera variante o imagen base)
-  const primeraImagen = p.variantes?.[0]?.imagen || p.imagen;
-  const rutaImagen = `Imagenes/${p.categoria}/${primeraImagen}`;
-
-  // ✅ Esto crea los circulitos de colores (si hay variantes)
-  const colorCircles = (p.variantes || []).map((v, i) => `
-    <div 
-      class="color-circle" 
-      style="background-color: ${v.color}" 
-      onclick="document.getElementById('${idImg}').src='Imagenes/${p.categoria}/${v.imagen}'"
-    ></div>
-  `).join('');
-
-  // ✅ Este es todo el HTML del producto
-  div.innerHTML = `
-    <img id="${idImg}" class="product-image" src="${rutaImagen}" alt="${p.nombre}" />
-    <div class="product-info">
-      <div class="product-name">${p.nombre}</div>
-      <div class="product-brand">${p.marca}</div>
-      <div class="product-price">$${p.precio}</div>
-      <div class="product-desc">${p.descripcion || 'Sin descripción.'}</div>
-    </div>
-    <div class="color-options">${colorCircles}</div>
-    <button class="add-to-cart">Agregar al carrito</button>
-  `;
-
-  contenedor.appendChild(div);
-});
+    if (filtrados.length === 0) {
+      contenedor.textContent = 'No hay productos que coincidan con los filtros.';
+      return;
     }
 
-    document.getElementById('filtroMarca').addEventListener('change', mostrarProductos);
-    document.getElementById('precioMin').addEventListener('input', mostrarProductos);
-    document.getElementById('precioMax').addEventListener('input', mostrarProductos);
-    document.getElementById('orden').addEventListener('change', mostrarProductos);
+    filtrados.forEach(p => {
+      const div = document.createElement('div');
+      div.className = 'product-card';
+      const idImg = `img-${p.id}`;
+      const primeraImagen = p.variantes?.[0]?.imagen || p.imagen;
+      const rutaImagen = `Imagenes/${p.categoria}/${primeraImagen}`;
 
-    fetch('Maquillaje/productos.json')
-      .then(res => res.json())
-      .then(data => {
-        productos = data;
-        cargarMarcas();
-        mostrarProductos();
-      })
-      .catch(err => {
-        console.error('Error cargando productos:', err);
-        document.getElementById('productosContainer').textContent = 'Error cargando productos.';
-      });
-  </script>
+      const colorCircles = (p.variantes || []).map((v) => `
+        <div class="color-circle" style="background-color: ${v.color}" 
+          onclick="document.getElementById('${idImg}').src='Imagenes/${p.categoria}/${v.imagen}'">
+        </div>
+      `).join('');
+
+      div.innerHTML = `
+        <img id="${idImg}" class="product-image" src="${rutaImagen}" alt="${p.nombre}" />
+        <div class="product-info">
+          <div class="product-name">${p.nombre}</div>
+          <div class="product-brand">${p.marca}</div>
+          <div class="product-price">$${p.precio}</div>
+          <div class="product-desc">${p.descripcion || 'Sin descripción.'}</div>
+        </div>
+        <div class="color-options">${colorCircles}</div>
+        <button class="add-to-cart">Agregar al carrito</button>
+      `;
+
+      contenedor.appendChild(div);
+    });
+  }
+
+  // Eventos filtros
+  document.getElementById('filtroMarca').addEventListener('change', mostrarProductos);
+  document.getElementById('precioMin').addEventListener('input', mostrarProductos);
+  document.getElementById('precioMax').addEventListener('input', mostrarProductos);
+  document.getElementById('orden').addEventListener('change', mostrarProductos);
+
+  // Cargar productos desde archivo JSON
+  fetch('Maquillaje/productos.json')
+    .then(res => res.json())
+    .then(data => {
+      productos = data;
+      cargarMarcas();
+      mostrarProductos();
+    })
+    .catch(err => {
+      console.error('Error cargando productos:', err);
+      document.getElementById('productosContainer').textContent = 'Error cargando productos.';
+    });
+
+  // === Carrito ===
+  let cartCount = 0;
+  const cartCountElement = document.getElementById('cart-count');
+
+  document.addEventListener('click', function (e) {
+    if (e.target && e.target.classList.contains('add-to-cart')) {
+      cartCount++;
+      cartCountElement.textContent = cartCount;
+
+      const card = e.target.closest('.product-card');
+      const productName = card.querySelector('.product-name')?.textContent || 'Producto';
+
+      let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      carrito.push(productName);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+    }
+  });
+
+  // Mostrar conteo actual si ya hay productos guardados
+  const carritoExistente = JSON.parse(localStorage.getItem('carrito'));
+  if (carritoExistente) {
+    cartCount = carritoExistente.length;
+    cartCountElement.textContent = cartCount;
+  }
+</script>
 </body>
 </html>
