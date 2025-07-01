@@ -1,0 +1,88 @@
+
+    body {
+      font-family: "Cormorant Upright", serif;
+      background-color: #F9E2C5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .header-left {
+    display: flex; /* Para alinear el logo y el nombre del sitio */
+    align-items: center;
+}
+
+.logo {
+    height: 50px; /* Altura del logo */
+    margin-right: 10px; /* Espacio a la derecha del logo */
+}
+
+.site-name {
+    font-family: "Cormorant Upright", serif;
+    font-size: 4em; /* Tamaño de fuente para el nombre del sitio */
+    font-weight: bold; /* Negrita */
+    color: #1F1F1F; /* Slate Black - Color del texto */
+}
+
+    .registro-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .registro-container h1 {
+      color: #650021;
+      margin-bottom: 30px;
+    }
+
+    form label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #1F1F1F;
+    }
+
+    form input,
+    form select {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border: 2px solid #B9AFAF;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: "Cormorant Upright", serif;
+      transition: border-color 0.3s;
+    }
+
+    form input:focus,
+    form select:focus {
+      outline: none;
+      border-color: #650021;
+    }
+
+    button {
+      background-color: #650021;
+      color: white;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-family: "Cormorant Upright", serif;
+    }
+
+    button:hover {
+      background-color: #F7CAC9;
+      color: #1F1F1F;
+    }
+  
